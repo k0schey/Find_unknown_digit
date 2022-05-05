@@ -6,10 +6,10 @@ public class Main
 {
     public static void main(String[] args)
     {
-        //
+        //tre
         Scanner scan = new Scanner(System.in);
         int position = scan.nextInt(); // позиция Василия в очереди
-
+        //
         if (position-1 > 144)
         {
             System.out.println("NO");
