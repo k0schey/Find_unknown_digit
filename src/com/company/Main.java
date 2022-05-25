@@ -1,33 +1,31 @@
 package com.company;
 
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main
 {
     public static void main(String[] args)
     {
-        //tre
+        String[][] arr = new String[4][4];
+        String[] additional;
         Scanner scan = new Scanner(System.in);
-        int position = scan.nextInt(); // позиция Василия в очереди
-        //
-        if (position-1 > 144)
+        for (int t = 0; t < 4; t++)
         {
-            System.out.println("NO");
-        }
-        else
-        {
-            for (int i = -1; i < 144; i++)
+            additional = scan.nextLine().split("");
+            for (int i = 0; i < 4; i++)
             {
-                position--;
-                if (position == 0)
-                {
-                    int hours = (i+1)/12;
-                    int minutes = ((i+1)%12)*5;
-
-                    System.out.println(hours + " " + minutes);
-                    break;
-                }
+                arr[t][i] = additional[i];
             }
         }
+        for (int t = 0; t < 3; t++)
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                if ((Objects.equals(arr[t][i], arr[t + 1][i]) && Objects.equals(arr[t][i], arr[t + 1][i + 1]) && Objects.equals(arr[t][i], arr[t][i + 1]))) {System.out.println("No"); System.exit(0);}
+            }
+        }
+
+        System.out.println("Yes");
     }
 }
