@@ -7,25 +7,26 @@ public class Main
 {
     public static void main(String[] args)
     {
-        String[][] arr = new String[4][4];
-        String[] additional;
-        Scanner scan = new Scanner(System.in);
-        for (int t = 0; t < 4; t++)
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        int m = scanner.nextInt();
+        int[] b = new int[10];
+        int w=0;
+        for (int i = 0; i < n; i++)
         {
-            additional = scan.nextLine().split("");
-            for (int i = 0; i < 4; i++)
+            for (int j = 0; j < m; j++)
             {
-                arr[t][i] = additional[i];
+                w = (i+1)*(j+1);
+                while (w != 0)
+                {
+                    b[w%10] += 1;
+                    w/=10;
+                }
             }
         }
-        for (int t = 0; t < 3; t++)
+        for(int i = 0; i < b.length; i++)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                if ((Objects.equals(arr[t][i], arr[t + 1][i]) && Objects.equals(arr[t][i], arr[t + 1][i + 1]) && Objects.equals(arr[t][i], arr[t][i + 1]))) {System.out.println("No"); System.exit(0);}
-            }
+            System.out.println(b[i]);
         }
-
-        System.out.println("Yes");
     }
 }
